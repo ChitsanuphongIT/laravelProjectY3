@@ -3,9 +3,5 @@ or
 composer install --ignore-platform-reqs
 
 
-test
 
 My name is Dew wowwowow
-
-
-แฮม
