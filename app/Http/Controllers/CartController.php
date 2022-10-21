@@ -111,4 +111,20 @@ class CartController extends Controller {
 
     }
 
+
+    public function finish(Request $body) {
+        $cust_name = $body->cust_name;
+        $cust_email = $body->cust_email;
+        $dataCart = json_decode($body->jsonDataCart);
+
+        foreach ($dataCart as $item) {
+            echo json_encode($item);
+            // echo $item->name . "<br>"; 
+        }
+
+        return;
+    }
+
+
+
 }

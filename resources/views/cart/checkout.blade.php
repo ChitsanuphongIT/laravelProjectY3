@@ -58,7 +58,7 @@
                 </div>
                 <div class="panel-body">
                     
-                    <form target="_blank" action="./complete" method="POST">
+                    <form id="formCheckout" target="_blank" action="./complete" method="POST">
                         @csrf
                         <input name="jsonDataCart" type="text" class="jsonDataCart" />
 
@@ -70,7 +70,6 @@
                             <label>อีเมล</label>
                             <input name="cust_email" type="text" class="form-control" id="cust_email" placeholder="อีเมล์ของท่าน" />
                         </div>
-                        <input id="submitFormDetailReport" type="submit" style="display: none;" />
                     </form>
 
                 </div>
@@ -83,7 +82,7 @@
     <a href="{{ URL::to('cart/view') }}" class="btn btn-default">ย้อนกลับ </a>
     <div class="pull-right">
         <a id="btnExportReport" href="#" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a>
-        <a href="#" class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
+        <a id="btnFinish" class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
     </div>
 
 </div>
@@ -110,9 +109,27 @@
             }
 
             // window.open(`/cart/complete?cust_name=${cust_name}&cust_email=${cust_email}`, '_blank');
-            document.querySelector('#submitFormDetailReport').click();
+            
+            let formCheckout = document.querySelector('#formCheckout');
+            formCheckout.submit();
         });
 
+        document.querySelector('#btnFinish').addEventListener('click', () => {
+            
+            let cust_name = document.querySelector('#cust_name').value;
+            let cust_email = document.querySelector('#cust_email').value;
+
+            if(cust_name == '' || cust_email == ''){
+                alert('กรุณากรอกข้อมูลลูกค้า');
+                return;
+            }
+
+            let formCheckout = document.querySelector('#formCheckout');
+
+            formCheckout.action = './finish'
+            formCheckout.submit();
+
+        });
 
     }, 100);
 </script>

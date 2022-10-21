@@ -101,6 +101,7 @@ Route::prefix('/cart')->group(function () {
     
     Route::get('/checkout', [CartController::class, 'checkOut']);
     Route::post('/complete', [CartController::class, 'complete']);
+    Route::post('/finish', [CartController::class, 'finish']);
 
 });
 
