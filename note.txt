@@ -2,7 +2,6 @@ composer install --ignore-platform-req=ext-gd
 or
 composer install --ignore-platform-reqs
 
-suntimeth
 
 test
 
