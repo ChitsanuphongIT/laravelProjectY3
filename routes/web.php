@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -30,6 +32,35 @@ Route::prefix('/home')->group(function() {
     Route::get('/', [HomeController::class, 'index']);
 
 });
+
+
+
+
+
+Route::prefix('/order')->group(function() {
+
+    Route::get('/', [OrderController::class, 'index']);
+    Route::get('/detail', [OrderController::class, 'detail']);
+
+});
+
+
+
+Route::prefix('/customer')->group(function() {
+
+    Route::get('/', [CustomerController::class, 'index']);
+    // Route::get('/add', [CustomerController::class, '?']);
+    // Route::get('/edit/{id}', [CustomerController::class, '?']);
+    // Route::get('/delete/{id}', [CustomerController::class, '?']);
+
+});
+
+
+
+
+
+
+
 
 Route::prefix('/product')->group(function() {
     Route::get('/', [ProductController::class, 'index']);

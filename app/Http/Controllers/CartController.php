@@ -81,7 +81,6 @@ class CartController extends Controller {
 
     public function complete(Request $body) {
         
-
         $order_no = 'ORD' . date('YmdHis') . rand(1000, 9999);
         $order_date = date('d-m-Y H:i:s');
 

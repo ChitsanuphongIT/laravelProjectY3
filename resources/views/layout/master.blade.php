@@ -48,6 +48,8 @@
 
     {{-- AngularJS --}}
     <script src="{{ asset('js/app.js') }}"></script>
+
+    {{-- JS form public --}}
     <script src="{{ asset('js/cart.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     {{-- <script src="{{ asset('js/cart.js') }}"></script> --}}

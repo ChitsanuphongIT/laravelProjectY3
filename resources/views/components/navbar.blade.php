@@ -10,6 +10,8 @@
         <li><a href="/home">สินค้า</a></li>
         @guest
         @else
+            <li><a href="/order">รายการสั่งซื้อ</a></li>
+            <li><a href="/customer">จัดการข้อมูลผู้ใช้</a></li>
             <li><a href="/product">จัดการข้อมูลสินค้า</a></li>
             <li><a href="/product/category">ประเภทสินค้า</a></li>
             {{-- <li><a href="#">รายงาน</a></li> --}}
