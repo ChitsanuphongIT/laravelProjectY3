@@ -40,7 +40,7 @@ Route::prefix('/home')->group(function() {
 Route::prefix('/order')->group(function() {
 
     Route::get('/', [OrderController::class, 'index']);
-    Route::get('/detail', [OrderController::class, 'detail']);
+    Route::get('/detail/{id}', [OrderController::class, 'detail']);
 
 });
 

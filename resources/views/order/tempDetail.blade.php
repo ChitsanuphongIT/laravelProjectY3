@@ -19,11 +19,12 @@
     {{-- @if(count($cart_items)) --}}
 
     <div class="panel panel-default">
-   
+        {{json_encode($order_details)}}
 
     </div>
 
 </div>
+
 
 
 @endsection
