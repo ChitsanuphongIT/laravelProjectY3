@@ -4,9 +4,5 @@ composer install --ignore-platform-reqs
 
 suntimeth
 
-test
 
 My name is Dew wowwowow
-
-
-แฮม
