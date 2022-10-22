@@ -27,6 +27,10 @@ class TbProduct extends Migration
             $table->string('stock_qty');
             $table->string('image_url')->nullable();
             $table->timestamps();
+
+            // foreign key
+            // $table->foreign('category_id')->references('id')->on('category');
+
         });
 
     }
