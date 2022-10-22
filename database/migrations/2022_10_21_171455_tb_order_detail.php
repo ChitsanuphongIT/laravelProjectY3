@@ -27,13 +27,8 @@ class TbOrderDetail extends Migration
             $table->timestamps();
 
             // foreign key
-<<<<<<< HEAD
             // $table->foreign('order_id')->references('id')->on('order');
             // $table->foreign('product_id')->references('id')->on('product');
-=======
-            $table->foreign('order_id')->references('id')->on('order');
-            $table->foreign('product_id')->references('id')->on('product');
->>>>>>> 4b08243122357dee1fa61f4db70d1e39f15f8246
 
         });
     }

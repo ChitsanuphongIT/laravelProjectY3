@@ -24,11 +24,7 @@ class TbOrder extends Migration
             $table->timestamps();
 
             // foreign key
-<<<<<<< HEAD
             // $table->foreign('user_id')->references('id')->on('users');
-=======
-            $table->foreign('user_id')->references('id')->on('users');
->>>>>>> 4b08243122357dee1fa61f4db70d1e39f15f8246
 
         });
     }

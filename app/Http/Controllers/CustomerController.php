@@ -17,6 +17,7 @@ class CustomerController extends Controller
         return view('customer.edit')
             ->with('user', $user);
     }
+
     public function onUpdate(Request $body) {
         $id = $body->id;
         $user = User::find($id);
@@ -27,4 +28,5 @@ class CustomerController extends Controller
             ->with('ok', true)
             ->with('msg', 'บันทึกข้อมูลเรียบร้อยแล้ว');
     }
+    
 }
