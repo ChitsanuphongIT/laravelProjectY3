@@ -7,19 +7,29 @@
 @endsection
 
 @section('content')
+{!!
+    Form::model(
+        $user, 
+        array(
+            'action' => 'App\Http\Controllers\CustomerController@onUpdate', 
+            'method' => 'post', 
+            'enctype' => 'multipart/form-data'
+        )
+    ) 
+!!}
 <div class="breadcrumb">
     <li><a href="{{ URL::to('home') }}"><i class="fa fa-home"></i> หน้าร้าน</a></li>
     <li><a href="{{ URL::to('customer') }}"> Customer</a></li>
     <li class="active">Customer detial</li>
 </div>
 
-{{-- @if($errors->any())
+@if($errors->any())
     <div class="alert alert-danger">
         @foreach ($errors->all() as $error)
             <div>{{ $error }}</div>
         @endforeach
     </div>
-@endif --}}
+@endif
 
 <div class="panel panel-default">
     <div class="panel-header">
@@ -36,8 +46,8 @@
             </tr>
             <tr style="height: 48px;">
                 <td style="width: 240px">
-                    {{ Form::label('stock_qty', 'อีเมล์') }}</td>
-                <td>{{ Form::text('stock_qty', $user->email, ['class' => 'form-control']) }} </td>
+                    {{ Form::label('email', 'อีเมล์') }}</td>
+                <td>{{ Form::text('email', $user->email, ['class' => 'form-control']) }} </td>
             </tr>
         </table>
     </div>

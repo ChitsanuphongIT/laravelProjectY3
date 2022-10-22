@@ -8,6 +8,23 @@
 
 @section('content')
 
+@section('bottom-script-area')
+
+    @if (session('msg'))
+        @if(session('ok'))
+            <script>
+                toastr.success("{{ session('msg') }}")
+            </script>
+        @else
+            <script>
+                toastr.error("{{ session('msg') }}")
+            </script>
+        @endif
+    @endif
+
+
+@endsection
+
 <div class="container" ng-app="app" ng-controller="controller">
     <h1>Customer</h1>
     <div class="breadcrumb">
@@ -43,7 +60,7 @@
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <button class="btn_delete btn btn-danger">
-                                    <input type="hidden" class="product_id" value="{{ $people->id }}">
+                                    <input type="hidden" class="user_id" value="{{ $people->id }}">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </td>
@@ -59,5 +76,18 @@
 
 </div>
 
+<script type="text/javascript">
+
+    let btnDel = document.querySelectorAll('.btn_delete')
+    
+    for (let i = 0; i < btnDel.length; i++) {
+        btnDel[i].addEventListener('click', () => {
+            if (confirm('คุณต้องการลบข้อมูลผู้ใช้หรือไม่')) {
+                window.location.href = `customer/delete/${btnDel[i].querySelector('.user_id').value}`;
+            }
+        })
+    }
+
+</script>
 
 @endsection

@@ -51,7 +51,8 @@ Route::prefix('/customer')->group(function() {
     Route::get('/', [CustomerController::class, 'index']);
     // Route::get('/add', [CustomerController::class, '?']);
     Route::get('/action/{id}', [CustomerController::class, 'onAction']);
-    // Route::get('/delete/{id}', [CustomerController::class, '?']);
+    Route::post('/update', [CustomerController::class, 'onUpdate']);
+    Route::get('/delete/{id}', [CustomerController::class, 'onDelete']);
 
 });
 
