@@ -41,7 +41,11 @@
                         <!-- product card -->
                         <div class="panel panel-default bs-product-card">
                             <div class="panel-body">
-                                <img src="@{ item.image_url }" class="img-responsive">
+                                <img 
+                                    src="@{ item.image_url || 'upload/images/no-img.jpg' }" 
+                                    class="img-responsive"
+                                    style="width: 100%; object-fit: cover; height: 120px;"
+                                />
                                 <br>
                                 <h4><a href="#">@{ item.name }</a></h4>
                                 

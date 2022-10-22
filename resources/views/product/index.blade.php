@@ -87,10 +87,10 @@
                 @endforeach
             </tbody>
             <tfoot>
-                <tr>
+                {{-- <tr>
                     <td>ราคารวม</td>
                     <td>{{ number_format($data_products->sum('price')) }}</td>
-                </tr>
+                </tr> --}}
             </tfoot>
         </table>
         <div class="panel-footer">
