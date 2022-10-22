@@ -72,6 +72,13 @@
             </table>
         </div>
 
+        <div class="" style="width: 100%; display: flex; justify-content: center;">
+            <a href="/register?back=/customer" class="btn btn-success">
+                <i class="fa fa-plus"></i> เพิ่มข้อมูลผู้ใช้
+            </a>
+        </div>
+        <br />
+
     </div>
 
 </div>
