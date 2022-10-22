@@ -108,7 +108,7 @@ class CartController extends Controller {
         $mpdf->Output('output.pdf', 'i');
 
         return $resp->withHeader("Content-type", "application/pdf");
-
+    
     }
 
 
@@ -116,13 +116,15 @@ class CartController extends Controller {
         $cust_name = $body->cust_name;
         $cust_email = $body->cust_email;
         $dataCart = json_decode($body->jsonDataCart);
+    
 
-        foreach ($dataCart as $item) {
-            echo json_encode($item);
-            // echo $item->name . "<br>"; 
-        }
+        //call function create() in OrderController.php 
+        app('App\Http\Controllers\OrderController')->create($body);
 
-        return;
+       
+        $this->complete($body);
+        return redirect('home');
+ 
     }
 
 

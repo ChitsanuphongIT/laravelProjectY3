@@ -20,8 +20,10 @@
     <div class="panel panel-default">
         
         <ul>
-            <li><a href="./order/detail">detail PD012041205</a></li>
-            <li><a href="./order/detail">detail PD120510251</a></li>
+            @foreach ($orders as $item)
+                <li> <a href="{{URL::to('order/detail/'.$item->id)}}"> {{json_encode($item)}}  </li>
+            @endforeach
+            
         </ul>
 
     </div>

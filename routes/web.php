@@ -40,7 +40,7 @@ Route::prefix('/home')->group(function() {
 Route::prefix('/order')->group(function() {
 
     Route::get('/', [OrderController::class, 'index']);
-    Route::get('/detail', [OrderController::class, 'detail']);
+    Route::get('/detail/{id}', [OrderController::class, 'detail']);
 
 });
 
@@ -50,7 +50,7 @@ Route::prefix('/customer')->group(function() {
 
     Route::get('/', [CustomerController::class, 'index']);
     // Route::get('/add', [CustomerController::class, '?']);
-    // Route::get('/edit/{id}', [CustomerController::class, '?']);
+    Route::get('/action/{id}', [CustomerController::class, 'onAction']);
     // Route::get('/delete/{id}', [CustomerController::class, '?']);
 
 });

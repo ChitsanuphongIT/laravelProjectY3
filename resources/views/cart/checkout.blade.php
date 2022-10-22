@@ -61,6 +61,9 @@
                     <form id="formCheckout" target="_blank" action="./complete" method="POST">
                         @csrf
                         <input name="jsonDataCart" type="text" class="jsonDataCart" />
+                        <input name="cust_userid" type="text" 
+                        id="cust_userid" value="{{Auth::user()->id}}" 
+                        readonly hidden />
 
                         <div class="form-group">
                             <label>ชื่อ-นามสกุล</label>
@@ -82,7 +85,7 @@
     <a href="{{ URL::to('cart/view') }}" class="btn btn-default">ย้อนกลับ </a>
     <div class="pull-right">
         <a id="btnExportReport" href="#" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a>
-        <a id="btnFinish" class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
+        <a id="btnFinish" href ="/home"class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
     </div>
 
 </div>
