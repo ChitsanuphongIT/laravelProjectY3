@@ -10,19 +10,15 @@ use App\Models\User;
 class OrderController extends Controller
 {
     public function index() {
-        $status_name =[
-            -1=>"ยกเลิกโดยแอดมิน",
-            0=>"ยังไม่ชำระ",
-            1=>"ชำระเงินแล้ว"
-        ];
+
 
         // Show latest order by id first.
         // $orders = Order::latest()->orderBy('id', 'desc')->get();
         $orders = Order::all();
         
+        // change name id to name string each user.
         foreach ( $orders as $order){
             $order->user_id = User::where('id', $order->user_id)->first()->name;
-            $order->status = $status_name[$order->status];
         }
 
         return view('order.index',compact('orders'));
