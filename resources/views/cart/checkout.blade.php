@@ -58,7 +58,7 @@
                 </div>
                 <div class="panel-body">
                     
-                    <form id="formCheckout" target="_blank" action="./complete" method="POST">
+                    <form id="formCheckout" action="./finish" method="POST">
                         @csrf
                         <input name="jsonDataCart" type="text" class="jsonDataCart" />
                         <input name="cust_userid" type="text" 
@@ -84,8 +84,8 @@
 
     <a href="{{ URL::to('cart/view') }}" class="btn btn-default">ย้อนกลับ </a>
     <div class="pull-right">
-        <a id="btnExportReport" href="#" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a>
-        <a id="btnFinish" href ="/home"class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
+        {{-- <a id="btnExportReport" href="#" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a> --}}
+        <a id="btnFinish" href="#" class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
     </div>
 
 </div>
@@ -100,22 +100,22 @@
         document.querySelectorAll('.btnDelItemCart').forEach(item => {
             item.style.display = 'none';
         });
-        console.log(document.querySelector('#btnExportReport'))
-        document.querySelector('#btnExportReport').addEventListener('click', () => {
+        // console.log(document.querySelector('#btnExportReport'))
+        // document.querySelector('#btnExportReport').addEventListener('click', () => {
 
-            let cust_name = document.querySelector('#cust_name').value;
-            let cust_email = document.querySelector('#cust_email').value;
+        //     let cust_name = document.querySelector('#cust_name').value;
+        //     let cust_email = document.querySelector('#cust_email').value;
 
-            if(cust_name == '' || cust_email == ''){
-                alert('กรุณากรอกข้อมูลลูกค้า');
-                return;
-            }
+        //     if(cust_name == '' || cust_email == ''){
+        //         alert('กรุณากรอกข้อมูลลูกค้า');
+        //         return;
+        //     }
 
-            // window.open(`/cart/complete?cust_name=${cust_name}&cust_email=${cust_email}`, '_blank');
+        //     // window.open(`/cart/complete?cust_name=${cust_name}&cust_email=${cust_email}`, '_blank');
             
-            let formCheckout = document.querySelector('#formCheckout');
-            formCheckout.submit();
-        });
+        //     let formCheckout = document.querySelector('#formCheckout');
+        //     formCheckout.submit();
+        // });
 
         document.querySelector('#btnFinish').addEventListener('click', () => {
             
@@ -134,5 +134,5 @@
 
         });
 
-    }, 100);
+    }, 1000);
 </script>

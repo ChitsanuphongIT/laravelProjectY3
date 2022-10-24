@@ -113,18 +113,14 @@ class CartController extends Controller {
 
 
     public function finish(Request $body) {
-        $cust_name = $body->cust_name;
-        $cust_email = $body->cust_email;
-        $dataCart = json_decode($body->jsonDataCart);
-    
-
+        
         //call function create() in OrderController.php 
-        app('App\Http\Controllers\OrderController')->create($body);
+        $order_ref = app('App\Http\Controllers\OrderController')->create($body);
 
-       
-        $this->complete($body);
-        return redirect('home');
- 
+        // Clear item in cart
+        echo "<script> localStorage.clear(); </script>";
+        
+        return view('cart.finish_order', compact('order_ref'));
     }
 
 

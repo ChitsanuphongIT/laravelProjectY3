@@ -64,7 +64,6 @@ class OrderController extends Controller
         $mpdf->Output($order->order_ref.'.pdf', 'i');
 
         return $resp->withHeader("Content-type", "application/pdf");
-
     }
 
 
@@ -87,7 +86,8 @@ class OrderController extends Controller
             $order_details->save();
         }
 
-        return 0;
+        //return order_ref number
+        return $order->order_ref;
     }
 
 
@@ -109,8 +109,6 @@ class OrderController extends Controller
 
         $order_id = 'PO'.date('Ymd').$orderDigit;
         return $order_id;
-
-       
     }
 
 }
