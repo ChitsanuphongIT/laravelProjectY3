@@ -40,11 +40,12 @@
                     @foreach ($orders as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->order_ref }}</td>
+                            {{-- <td>{{ $item->order_ref }}</td> --}}
+                            <td><a href="{{ URL::to('/reciept/'.$item->order_ref) }}">{{ $item->order_ref }}</a></td> 
                             <td>{{ $item->user_id }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td><a href="{{ URL::to('detail/'.$item->id )}}">รายละเอียด</a></td>
-                            <td>{{ $item->status}}</td>
+                            <td>{{ $item->status }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -60,6 +61,5 @@
     </div>
 
 </div>
-
 
 @endsection
