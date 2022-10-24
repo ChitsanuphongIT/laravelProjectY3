@@ -41,6 +41,7 @@ Route::prefix('/order')->group(function() {
 
     Route::get('/', [OrderController::class, 'index']);
     Route::get('/detail/{id}', [OrderController::class, 'detail']);
+    Route::get('/receipt/{id}', [OrderController::class, 'receipt']);
 
 });
 

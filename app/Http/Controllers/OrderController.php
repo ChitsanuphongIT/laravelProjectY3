@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Order_Detail;
+use App\Models\Product;
+
 use Carbon\Carbon;
 use App\Models\User;
 class OrderController extends Controller
@@ -29,6 +31,42 @@ class OrderController extends Controller
         $order_details = Order_Detail::where('order_id', $id)->get();
         return view('order.tempDetail',compact('order_details'));
     }
+
+    public function receipt($id = null) {
+        $order = Order::where('order_ref', $id)->first();
+        $order_details = Order_Detail::where('order_id', $order->id)->get();
+        $user = User::where('id', $order->user_id)->first();
+
+        // New PDF zone
+        $order_no = $order->order_ref;
+        $order_date = $order->created_at->format('Y-m-d');
+        $cust_name = $user->name;
+        $cust_email = $user->email;
+        $total_price = 0;
+
+        foreach ( $order_details as $item){
+            $item->name = Product::where('id', $item->product_id)->first()->name;
+            $total_price += $item->total;
+        }
+
+        
+        $html_output = view('order.receipt', 
+            compact(
+                'order_details', 'cust_name', 'cust_email', 'total_price',
+                'order_no', 'order_date'
+            )
+        )->render();
+        
+        $mpdf = new \Mpdf\Mpdf();
+        
+        $mpdf->debug = true;
+        $mpdf->WriteHTML($html_output);
+        $mpdf->Output($order->order_ref.'.pdf', 'i');
+
+        return $resp->withHeader("Content-type", "application/pdf");
+
+    }
+
 
     // Create order in database
     public function create(Request $body){

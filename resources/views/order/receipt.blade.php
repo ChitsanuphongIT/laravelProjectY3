@@ -78,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody class="_cart_tbody_report">
-                        {{-- @foreach ($dataCart as $item)
+                        @foreach ($order_details as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
@@ -86,7 +86,7 @@
                                 <td>{{ $item->qty }}</td>
                                 <td>{{ $item->total }}</td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </td>
