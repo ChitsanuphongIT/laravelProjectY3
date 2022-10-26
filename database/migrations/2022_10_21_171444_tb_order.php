@@ -18,9 +18,11 @@ class TbOrder extends Migration
         Schema::create('order', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->unsignedBigInteger('user_id');
             $table->string('order_ref');
             $table->integer('status');
+            $table->unsignedBigInteger('user_id');
+            $table->string('user_fullname');
+            $table->string('user_email');
             $table->timestamps();
 
             // foreign key

@@ -18,17 +18,21 @@ class OrderTableSeeder extends Seeder
         DB::table('order')->insert(array(
             [
                 'id' => 1,
-                'user_id' => 1,
-                'order_ref' => 'PO2018021875',
+                'order_ref' => 'PO202210240001',
                 'status' => 0,
+                'user_id' => 1,
+                'user_fullname' => 'Yodchai Maharatanapong',
+                'user_email' => 'yodchai@gmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 2,
-                'user_id' => 1,
-                'order_ref' => 'PO2025323154',
+                'order_ref' => 'PO202210240002',
                 'status' => 1,
+                'user_id' => 1,
+                'user_fullname' => 'Somchai Maharatanapong',
+                'user_email' => 'somchai@gmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
