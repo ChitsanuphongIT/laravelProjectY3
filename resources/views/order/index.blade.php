@@ -40,26 +40,26 @@
                     @foreach ($orders as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
-                            {{-- <td>{{ $item->order_ref }}</td> --}}
-                            <td><a href="{{ URL::to('order/receipt/'.$item->order_ref) }}">{{ $item->order_ref }}</a></td> 
+                            <td><a href="{{ URL::to('order/receipt/'.$item->order_ref) }}" target="_blank">{{ $item->order_ref }}</a></td> 
                             <td>{{ $item->user_id }}</td>
-                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->created_at->format("Y/m/d")}}</td>
                             <td><a href="{{ URL::to('order/detail/'.$item->id )}}">รายละเอียด</a></td>
-                            <td>{{ $item->status }}</td>
+                            @if ($item->status == 0)
+                            <td class="bg-danger">ยังไม่ชำระเงิน</td>
+
+                            @elseif ($item->status == 1)
+                            <td class="bg-success">ชำระเงินแล้ว</td>
+
+                            @elseif($item->status == -1)
+                            <td class="bg-secondary">ยกเลิกโดยแอดมิน</td>
+                            @endif 
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        {{-- <ul>
-            @foreach ($orders as $item)
-                <li> <a href="{{URL::to('order/detail/'.$item->id)}}"> {{json_encode($item)}}  </li>
-            @endforeach
-            
-        </ul> --}}
 
     </div>
 
 </div>
-
 @endsection

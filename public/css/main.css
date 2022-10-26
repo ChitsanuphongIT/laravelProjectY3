@@ -54,3 +54,11 @@
 .bs-product-card .form-group strong { 
     font-size: 16px;
 }
+
+.bg-success {
+    background-color: rgb(113, 255, 113);
+}
+
+.bg-danger {
+    background-color: rgb(234, 74, 74);
+}

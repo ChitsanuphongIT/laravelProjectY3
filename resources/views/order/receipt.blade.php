@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <strong>อีเมลล์ : </strong>
+                            <strong>อีเมล์ : </strong>
                             {{-- {{ Auth::user()->email }} --}}
                             {{ $cust_email; }}
                         </td>
