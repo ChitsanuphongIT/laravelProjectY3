@@ -18,23 +18,23 @@ class OrderDetailTableSeeder extends Seeder
         DB::table('order_detail')->insert(array(
             [
                 "id" => 1,
-                "order_id" => 6,
+                "order_id" => 2,
                 "product_id" => 2,
                 "qty" => 2,
                 "price" => 5000,
                 "total" => 10000,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'created_at' => new Carbon('2022-10-20 12:00:00'),
+                'updated_at' => new Carbon('2022-10-20 12:00:00')
             ],
             [
                 "id" => 2,
-                "order_id" => 6,
+                "order_id" => 2,
                 "product_id" => 3,
                 "qty" => 1,
                 "price" => 6500,
                 "total" => 6500,
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'created_at' => new Carbon('2022-10-20 16:00:00'),
+                'updated_at' => new Carbon('2022-10-20 16:00:00')
             ]
         ));
     }

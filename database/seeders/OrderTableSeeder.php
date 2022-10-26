@@ -23,8 +23,8 @@ class OrderTableSeeder extends Seeder
                 'user_id' => 1,
                 'user_fullname' => 'Yodchai Maharatanapong',
                 'user_email' => 'yodchai@gmail.com',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'created_at' => new Carbon('2022-10-20 12:00:00'),
+                'updated_at' => new Carbon('2022-10-20 12:00:00'),
             ],
             [
                 'id' => 2,
@@ -33,8 +33,8 @@ class OrderTableSeeder extends Seeder
                 'user_id' => 1,
                 'user_fullname' => 'Somchai Maharatanapong',
                 'user_email' => 'somchai@gmail.com',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'created_at' => new Carbon('2022-10-20 16:00:00'),
+                'updated_at' => new Carbon('2022-10-20 16:00:00'),
             ],
         ));
     }
