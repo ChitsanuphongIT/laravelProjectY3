@@ -67,11 +67,15 @@
 
                         <div class="form-group">
                             <label>ชื่อ-นามสกุล</label>
-                            <input name="cust_name" type="text" class="form-control" id="cust_name" placeholder="ชื่อ-นามสกุล" />
+                            <input name="cust_name" type="text" 
+                            class="form-control" id="cust_name" 
+                            value="{{Auth::user()->name}}" placeholder="ชื่อ-นามสกุล" />
                         </div>
                         <div class="form-group">
                             <label>อีเมล</label>
-                            <input name="cust_email" type="text" class="form-control" id="cust_email" placeholder="อีเมล์ของท่าน" />
+                            <input name="cust_email" type="text" 
+                            class="form-control" id="cust_email" 
+                            value="{{Auth::user()->email}}" placeholder="อีเมล์ของท่าน" />
                         </div>
                     </form>
 

@@ -40,8 +40,8 @@ class OrderController extends Controller
         // New PDF zone
         $order_no = $order->order_ref;
         $order_date = $order->created_at->format('Y-m-d');
-        $cust_name = $user->name;
-        $cust_email = $user->email;
+        $cust_name = $order->user_fullname;
+        $cust_email = $order->user_email;
         $total_price = 0;
 
         foreach ( $order_details as $item){
@@ -72,6 +72,8 @@ class OrderController extends Controller
     
         $order = new Order();
         $order->user_id = $body->cust_userid;
+        $order->user_fullname = $body->cust_name;
+        $order->user_email = $body->cust_email;
         $order->order_ref = $this->create_order_id();
         $order->status = 0;
         $order->save();
