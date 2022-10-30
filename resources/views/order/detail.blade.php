@@ -52,9 +52,9 @@
                     <tr>
                         <th>ลำดับ</th>
                         <th>ชื่อสินค้า</th>
-                        <th>ราคาต่อหน่วย</th>
-                        <th>จำนวน</th>
-                        <th>รวมเงิน</th>
+                        <th class="text-right">ราคาต่อหน่วย</th>
+                        <th class="text-right">จำนวน</th>
+                        <th class="text-right">รวมเงิน</th>
                     </tr>
                     @foreach ($order_details as $item)
                         <tr>
