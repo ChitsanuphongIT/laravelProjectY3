@@ -40,7 +40,12 @@ Route::prefix('/home')->group(function() {
 Route::prefix('/order')->group(function() {
 
     Route::get('/', [OrderController::class, 'index']);
-    Route::get('/detail/{id}', [OrderController::class, 'detail']);
+    
+    Route::prefix('/detail')->group(function() {
+        Route::get('/{id}', [OrderController::class, 'detail']);
+        Route::get('/changeStatusOrder/{id}/{status}', [OrderController::class, 'changeStatusOrder']);
+    });
+    
     Route::get('/receipt/{id}', [OrderController::class, 'receipt']);
 
 });
@@ -110,3 +115,6 @@ Route::prefix('/cart')->group(function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
+
+
+// Route::get('/changeStatus',[App\Http\Controllers\OrderController::class, 'changeMemberStatus'])->name('changeStatus');

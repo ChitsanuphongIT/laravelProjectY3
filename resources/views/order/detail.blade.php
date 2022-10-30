@@ -19,6 +19,8 @@
 
         {{-- @if (count($cart_items)) --}}
 
+        <input id="order_id" type="hidden" value="{{$order->id}}">
+
         <div class="panel-body">
             <table class="table table-bordered table-striped table-hover">
                 <tbody>
@@ -76,6 +78,17 @@
                 </tfoot>
             </table>
         </div>
-
+        <script>
+            $(function(){
+                $('.toggle-class').change(function(){
+                    let statusOrder = $(this).prop('checked') == true ? 1 : 0;
+                    let idOrder = document.querySelector('#order_id').value;
+                    setTimeout(() => {
+                        window.location.href = `./changeStatusOrder/${idOrder}/${statusOrder}`;
+                    }, 1000);
+                }); 
+            });
+        </script>
     </div>
+    
 @endsection

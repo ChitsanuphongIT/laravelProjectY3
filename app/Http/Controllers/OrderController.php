@@ -128,5 +128,22 @@ class OrderController extends Controller
         $order_id = 'PO'.date('Ymd').$orderDigit;
         return $order_id;
     }
+    
+    
+    // public function changeMemberStatus(Request $request)
+    // {
+    //     $order = Order::find($request->order);
+    //     $order->status = $request->status;
+    //     $order->save();
+    // }
+
+    public function changeStatusOrder($idOrder, $statusOrder)
+    {
+        $order = Order::find($idOrder);
+        $order->status = $statusOrder;
+        $order->save();
+
+        return redirect('order/detail/'.$idOrder);
+    }
 
 }
