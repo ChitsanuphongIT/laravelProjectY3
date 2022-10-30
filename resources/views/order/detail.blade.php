@@ -36,13 +36,11 @@
                             <td>{{ $order->user_fullname }}</td>
                             <td>{{ $order->user_email }}</td>
                             <td>{{ $order->created_at->format('Y/m/d') }}</td>
-                            @if ($order->status == 0)
-                                <td class="bg-danger">ยังไม่ชำระเงิน</td>
-                            @elseif ($order->status == 1)
-                                <td class="bg-success">ชำระเงินแล้ว</td>
-                            @elseif($order->status == -1)
-                                <td class="bg-secondary">ยกเลิกโดยแอดมิน</td>
-                            @endif
+                            <td><input data-id="{{$order->status}}" class="toggle-class" 
+                            type="checkbox" data-onstyle="success" data-offstyle="danger"
+                            data-toggle="toggle" data-on="ชำระเงินแล้ว" data-off="ยังไม่ชำระเงิน"
+                            {{$order->status == 1 ? 'checked' : ''}}> </td>
+
                         </tr>
 
                 </tbody>
