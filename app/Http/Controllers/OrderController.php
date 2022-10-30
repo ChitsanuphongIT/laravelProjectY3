@@ -28,7 +28,7 @@ class OrderController extends Controller
 
 
     public function detail($id = null) {
-        $orders = Order::all();
+        $order = Order::where('id', $id)->first();
 
         $order_details = Order_Detail::where('order_id', $id)->get();
         $total_price = 0;
@@ -37,12 +37,12 @@ class OrderController extends Controller
             $item->name = Product::where('id', $item->product_id)->first()->name;
             $total_price += $item->total;
         }
-        foreach ( $orders as $items){
-            $items->user_id = User::where('id', $items->user_id)->first()->name;
+
+        $order->user_id = User::where('id', $order->user_id)->first()->name;
             
-        }
+
         
-        return view('order.tempDetail',compact('order_details','orders'));
+        return view('order.detail',compact('order_details','order','total_price'));
         
     }
     
