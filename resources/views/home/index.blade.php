@@ -62,7 +62,7 @@
                                 @guest
                                     <a href="#" 
                                         style="
-                                            position: relative;
+                                            position: flex;
                                             cursor: not-allowed
                                         "
                                         class="btn btn-success btn-block btnKeepItemToCart">
